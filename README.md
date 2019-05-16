@@ -7,3 +7,8 @@
 - Build MVP
 - Phase 2 Stretch Features, Bugs, Enhancements, UI Polishing
 
+MERN
+MongoDB
+Express
+React w/Hooks
+NodeJS
