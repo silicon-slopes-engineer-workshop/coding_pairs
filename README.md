@@ -1,4 +1,4 @@
-# Code With Me  -> matcher
+# Code With Me  -> Pair coding matcher
 
 - user story - An overview of the intended application and WHY you feel it's valuable to users.
 1. -- (subject to chagne still) Sign up process for each member creating a profile with basic skills levels, pair coding preferences (work with strong/weak etc.)  
