@@ -10,6 +10,6 @@
 
 ## load in browser and create a new user with sign up
 
-## create new feature brach with the pattern - `task-1` task and iteration of that feature
+## create new feature branch with the pattern - `task-1` task and iteration of that feature
 
 CODE !
