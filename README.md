@@ -2,7 +2,7 @@
 
 - user story - An overview of the intended application and WHY you feel it's valuable to users.
 1. -- (subject to chagne still) Sign up process for each member creating a profile with basic skills levels, pair coding preferences (work with strong/weak etc.)  
-2. -- Upon arrival to a meet up user is to click tasks desried for the day somehow and is matched with another programmer, handle odd group total to pair one group with 3.\
+2. -- Upon arrival to a meet up user is to click tasks desried for the day somehow and is matched with another programmer, handle odd group total to pair one group with, this happens only after all present have clicked in so to speak 
 - A breakdown of roles by group member. A schedule for completion of various tasks. Use of a PM tool like a Kanban Board of some sort 
 1. -- We will do this project by assignemt from organzier and make pairs for each day coding. 
 2. -- We will use the built in Github Kanban Boards and Issues 
