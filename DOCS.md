@@ -23,11 +23,13 @@
 - You cannot approve your own PR - so two pairs of eyes on ALL PRs. 
 
 
-Resources : in beta
-http://www.payton-consulting.com/user-stories-create-acceptance-criteria/
-notes on QA Acceptance criteria- go through each story and make criteria if there are none - form basis for test cases.
-Eliminate unneeded scope - cut out or split up story 
-Input - process - output  
+- Template or process for creating "Issues"
+-- [Acceptance criteria](http://www.payton-consulting.com/user-stories-create-acceptance-criteria/)
+```Pattern: Input - process - output  
 Each story is business driven 
 able to illustrate a user story with an example
 able to express the acceptance criteria for a user story in terms that will be directly usable as an automated acceptance test
+Eliminate unneeded scope - cut out or split up story 
+```
+
+
