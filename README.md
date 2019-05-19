@@ -1,8 +1,8 @@
 <h1 align="center"CODEWITHME</h1>
-
+<p>A MERN app used to make a "smart" pairs for pair coding.</p>
 <div align="center">
 
-A MERN app used to make a "smart" pairs for pair coding.
+
 
 
 [![CircleCI](https://img.shields.io/circleci/project/github/mui-org/material-ui/next.svg)]()
@@ -14,7 +14,7 @@ A MERN app used to make a "smart" pairs for pair coding.
 </div>
 
 
-# Code With Me  -  Pair coding matcher
+
 
 ## User Stories - App 
 1. Sign up process for each member creating a profile with basic skills levels, pair coding preferences (work with strong/weak etc.)  
