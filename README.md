@@ -1,4 +1,4 @@
-<h1 align="center"CODEWITHME</h1>
+<h1 align="center">CODEWITHME</h1>
 <p>A MERN app used to make a "smart" pairs for pair coding.</p>
 <div align="center">
 
