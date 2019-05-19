@@ -24,7 +24,7 @@
 
 
 - Template or process for creating "Issues"
--- [Acceptance criteria](http://www.payton-consulting.com/user-stories-create-acceptance-criteria/)
+-- Reference Article: [Acceptance criteria](http://www.payton-consulting.com/user-stories-create-acceptance-criteria/)
 ```Pattern: Input - process - output  
 Each story is business driven meaning a user benefit
 able to illustrate a user story with an example
