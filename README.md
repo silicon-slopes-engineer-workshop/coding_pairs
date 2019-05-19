@@ -1,15 +1,72 @@
+<h1 align="center"CODEWITHME</h1>
+
+<div align="center">
+
+A MERN app components that is used to make a "smart" pair for leveling up during pair coding activity.
+
+
+[![CircleCI](https://img.shields.io/circleci/project/github/mui-org/material-ui/next.svg)](https://circleci.com/gh/mui-org/material-ui/tree/next)
+[![Coverage Status](https://img.shields.io/codecov/c/github/mui-org/material-ui/next.svg)](https://codecov.io/gh/mui-org/material-ui/branch/next)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1320/badge)](https://bestpractices.coreinfrastructure.org/projects/1320)
+![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+[![PeerDependencies](https://david-dm.org/mui-org/material-ui/next/peer-status.svg?path=packages/material-ui)](https://david-dm.org/mui-org/material-ui/next?type=peer&path=packages/material-ui)
+
+</div>
+
+## Download the repo
+
 `git clone https://github.com/silicon-slopes-engineer-workshop/coding_pairs.git`
 
-### npm install client and server each
 
-### start mongo server
+## Installation
 
-### Create an .env file with a SECRET on api level
 
-## fire up each the client and the server - node index.js and in other terminal npm run start
+**[Skeleton architecture with basic auth]()**
+```sh
+// in client folder with npm
+npm install 
+// in api folder with npm
+npm install 
+```
 
-## load in browser and create a new user with sign up
+**[Start MongoDB server]()**
+```sh
+// in terminal
+mongod
+```
 
-## create new feature branch with the pattern - `task-1` task and iteration of that feature
+**[Create an .env file with a SECRET on the api level]()** 
+```sh
+// in api folder with npm
+touch .env
 
-CODE !
+// open file and write 
+SECRET=yoursecretwordhere
+// then save it 
+```
+
+**[Start dev servers]()** 
+```sh
+// in client folder with npm
+npm run start
+// in api folder with npm
+node index.js
+```
+
+**[Get Coding]()** 
+```sh
+// load in client in the browser on localhost
+in the browser create a new user with the sign up to access all screens including auth protected routes
+
+```
+
+## Contributing to CODEWITHME
+
+CODEWITHME is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of the awesome participants of the "silicon-slopes-engineer-workshop" MeetUp. 
+```sh
+// use git to create new feature branch with the pattern of task plus a dash with the iteration of that feature
+`git checkout -b deploy-framework-1`
+```
+
+
+## CODE !
