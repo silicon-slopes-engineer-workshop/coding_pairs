@@ -2,7 +2,7 @@
 
 <div align="center">
 
-A MERN app components that is used to make a "smart" pair for leveling up during pair coding activity.
+A MERN app used to make a "smart" pair for leveling up during pair coding activity.
 
 
 [![CircleCI](https://img.shields.io/circleci/project/github/mui-org/material-ui/next.svg)](https://circleci.com/gh/mui-org/material-ui/tree/next)
@@ -56,7 +56,7 @@ node index.js
 **[Get Coding]()** 
 ```javascript
 // load in client in the browser on localhost
-in the browser create a new user with the sign up to access all screens including auth protected routes
+// in the browser create a new user with the sign up to access all screens including auth protected routes
 
 ```
 
