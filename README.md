@@ -2,14 +2,14 @@
 
 <div align="center">
 
-A MERN app used to make a "smart" pair for leveling up during pair coding activity.
+A MERN app used to make a "smart" pairs for pair coding.
 
 
-[![CircleCI](https://img.shields.io/circleci/project/github/mui-org/material-ui/next.svg)](https://circleci.com/gh/mui-org/material-ui/tree/next)
-[![Coverage Status](https://img.shields.io/codecov/c/github/mui-org/material-ui/next.svg)](https://codecov.io/gh/mui-org/material-ui/branch/next)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1320/badge)](https://bestpractices.coreinfrastructure.org/projects/1320)
+[![CircleCI](https://img.shields.io/circleci/project/github/mui-org/material-ui/next.svg)]()
+[![Coverage Status](https://img.shields.io/codecov/c/github/mui-org/material-ui/next.svg)]()
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1320/badge)]()
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-[![PeerDependencies](https://david-dm.org/mui-org/material-ui/next/peer-status.svg?path=packages/material-ui)](https://david-dm.org/mui-org/material-ui/next?type=peer&path=packages/material-ui)
+[![PeerDependencies](https://david-dm.org/mui-org/material-ui/next/peer-status.svg?path=packages/material-ui)]()
 
 </div>
 
