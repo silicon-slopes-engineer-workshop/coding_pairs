@@ -29,3 +29,5 @@ notes on QA Acceptance criteria- go through each story and make criteria if ther
 Eliminate unneeded scope - cut out or split up story 
 Input - process - output  
 Each story is business driven 
+able to illustrate a user story with an example
+able to express the acceptance criteria for a user story in terms that will be directly usable as an automated acceptance test
