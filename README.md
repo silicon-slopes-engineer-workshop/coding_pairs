@@ -22,7 +22,7 @@ A MERN app components that is used to make a "smart" pair for leveling up during
 
 
 **[Skeleton architecture with basic auth]()**
-```sh
+```javascript
 // in client folder with npm
 npm install 
 // in api folder with npm
@@ -30,13 +30,13 @@ npm install
 ```
 
 **[Start MongoDB server]()**
-```sh
+```javascript
 // in terminal
 mongod
 ```
 
 **[Create an .env file with a SECRET on the api level]()** 
-```sh
+```javascript
 // in api folder with npm
 touch .env
 
@@ -46,7 +46,7 @@ SECRET=yoursecretwordhere
 ```
 
 **[Start dev servers]()** 
-```sh
+```javascript
 // in client folder with npm
 npm run start
 // in api folder with npm
@@ -54,7 +54,7 @@ node index.js
 ```
 
 **[Get Coding]()** 
-```sh
+```javascript
 // load in client in the browser on localhost
 in the browser create a new user with the sign up to access all screens including auth protected routes
 
@@ -63,7 +63,7 @@ in the browser create a new user with the sign up to access all screens includin
 ## Contributing to CODEWITHME
 
 CODEWITHME is an MIT-licensed open source project. It's an independent project with ongoing development made possible thanks to the support of the awesome participants of the "silicon-slopes-engineer-workshop" MeetUp. 
-```sh
+```javascript
 // use git to create new feature branch with the pattern of task plus a dash with the iteration of that feature
 `git checkout -b deploy-framework-1`
 ```
