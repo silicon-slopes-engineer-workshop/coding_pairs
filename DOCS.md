@@ -25,3 +25,6 @@
 
 Resources : in beta
 http://www.payton-consulting.com/user-stories-create-acceptance-criteria/
+notes on QA Acceptance criteria- go through each story and make criteria if there are none - form basis for test cases.
+Eliminate unneeded scope - cut out or split up story 
+Input - process - output  
