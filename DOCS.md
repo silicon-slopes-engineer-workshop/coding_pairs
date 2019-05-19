@@ -21,3 +21,7 @@
 
 ### Repo Rules 
 - You cannot approve your own PR - so two pairs of eyes on ALL PRs. 
+
+
+Resources : in beta
+http://www.payton-consulting.com/user-stories-create-acceptance-criteria/
