@@ -3,6 +3,14 @@
 ## Purpose and Goals 
 Master the Craft of Software Engineering - Level Up Each Week! With hands on Pair Coding!
 
+
+## Expectations 
+
+- Respect all 
+
+- Be willing to use the app to be asigned a partner to pair code with for the day etc. 
+
+
 ## Meeting Place and Times
 - Where : Right now library 
 - When/Frequency: Weekly on Wed 3-4x/month AND Thur max 1x/month - between 5:45 - 9pm depending on available public rooms 
