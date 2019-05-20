@@ -1,5 +1,32 @@
 import React, { Component } from 'react';
 import { withContext } from "../AppContext"
+import styled from 'styled-components'
+
+const SignupForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: black solid 1px;
+  border-radius: 10px;
+  width: 33%;
+  // height: 150px;
+  padding: 3%;
+`
+
+const Inputs = styled.input`
+  width: 75%;
+  height: 50px;
+  margin: 1%;
+`
+
+const Button = styled.button`
+  width: 75%;
+  height 50px;
+  margin: 1%;
+  background: #43B3E0;
+`
+
 
 class Signup extends Component {
     constructor() {
@@ -35,25 +62,26 @@ class Signup extends Component {
             })
     }
 
+
     render() {
         return (
             <div className="form-wrapper">
-                <form onSubmit={this.handleSubmit}>
+                <SignupForm onSubmit={this.handleSubmit}>
                     <h3>Sign Up</h3>
-                    <input
+                    <Inputs
                         onChange={this.handleChange}
                         value={this.state.username}
                         name="username"
                         type="text"
                         placeholder="Username"/>
-                    <input
+                    <Inputs
                         onChange={this.handleChange}
                         value={this.state.password}
                         name="password"
                         type="password"
                         placeholder="Password"/>
-                    <button type="submit">Create Account</button>
-                </form>
+                    <Button type="submit">Create Account</Button>
+                </SignupForm>
 
                 {
                     this.state.errorMessage &&
