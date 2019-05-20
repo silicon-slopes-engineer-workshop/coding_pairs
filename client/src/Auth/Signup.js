@@ -27,6 +27,11 @@ const Button = styled.button`
   background: #43B3E0;
 `
 
+const Error = styled.div`
+  background: red;
+  color: white;
+`
+
 
 class Signup extends Component {
     constructor() {
@@ -85,7 +90,9 @@ class Signup extends Component {
 
                 {
                     this.state.errorMessage &&
-                    <p style={{color: "red"}}>{this.state.errorMessage}</p>
+                    <Error>
+                      <p>{this.state.errorMessage}</p>
+                    </Error>
                 }
 
             </div>
