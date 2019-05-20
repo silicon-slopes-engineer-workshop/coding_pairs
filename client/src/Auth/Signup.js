@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withContext } from "../AppContext"
+import { Button, SignupForm } from "../styles/AuthStyles.js"
+import { H1 } from "../styles/GlobalStyles.js"
 
 class Signup extends Component {
     constructor() {
@@ -38,8 +40,8 @@ class Signup extends Component {
     render() {
         return (
             <div className="form-wrapper">
-                <form onSubmit={this.handleSubmit}>
-                    <h3>Sign Up</h3>
+                <SignupForm onSubmit={this.handleSubmit}>
+                    <H1>Sign Up</H1>
                     <input
                         onChange={this.handleChange}
                         value={this.state.username}
@@ -52,8 +54,8 @@ class Signup extends Component {
                         name="password"
                         type="password"
                         placeholder="Password"/>
-                    <button type="submit">Create Account</button>
-                </form>
+                    <Button type="submit">Create Account</Button>
+                </SignupForm>
 
                 {
                     this.state.errorMessage &&
