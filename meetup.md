@@ -1,7 +1,7 @@
 # MeetUp Reference
 
 ## Purpose and Goals 
-Master the Craft of Software Engineering - Level Up Each Week! 
+Master the Craft of Software Engineering - Level Up Each Week! With hands on Pair Coding!
 
 ## Meeting Place and Times
 - Where : Right now library 
