@@ -11,15 +11,29 @@ Master the Craft of Software Engineering - Level Up Each Week!
 ## Normal Agenda^ 
 
 Motivational Moment (sharing, blip video, positive aspect of SE) [5 min or less]
+
+
 Admin - organizing teams for the day, location updates or anything etc. [5-10 min]
+
+
 Trends/Best Practices [5 -15 min]
+
+
 Pair Coding [approx. 60-120 min. (usually 90 min.)]
+
+
 
 
 Example: Start - 
 6:45pm - 15 min. first 3 above
+
+
 7:00pm - 90 min. pair coding 
+
+
  8:30pm - go home and rest and etc. 
+ 
+ 
 
 
 
