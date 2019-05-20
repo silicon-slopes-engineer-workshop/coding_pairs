@@ -25,7 +25,7 @@
 ### TECH STACK
 - MERN (w/hooks) +Dockerized - deployed with Netlify and Heroku
 
-### Repo Rules 
+### Repo Rules (pending discussion and/or approval - subject to change - still in progress) 
 - You cannot approve your own PR - so two pairs of eyes on ALL PRs.
 - Write clean code, Code to Spec, write tests(TBD), plan each task first (pseudocode) for example:
 ```
