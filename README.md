@@ -98,6 +98,15 @@ CODEWITHME is an MIT-licensed open source project. It's an independent project w
 // use git to create new feature branch with the pattern of task plus a dash with the iteration of that feature
 `git checkout -b deploy-framework-1`
 ```
-
+## CSS Colors
+  These are colors for the overall app.
+  Black: #000000
+  Butter: #FEDC3D
+  Azure: #01ABAA
+  Peach: #FEA680
+  These are Colors indicating technology categories.
+  Frontend => Orange: #FFA500
+  Backend => Navy: #000080
+  Other => Green: #008000
 
 ## CODE !
