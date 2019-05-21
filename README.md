@@ -101,3 +101,8 @@ CODEWITHME is an MIT-licensed open source project. It's an independent project w
 
 
 ## CODE !
+
+## Styled Components
+  (A short tutorial on styled components)[https://youtu.be/JG9DxnopKas]
+  (Styled components on NPM)[https://www.npmjs.com/package/styled-components]
+  (Styled components docs)[https://www.styled-components.com/docs]
