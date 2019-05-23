@@ -1,31 +1,9 @@
 import React, { Component } from 'react';
 import { withContext } from "../AppContext"
 import styled from 'styled-components'
+import { Button, SignupForm, Inputs } from "../styles/AuthStyles.js"
+import { H1 } from "../styles/GlobalStyles.js"
 
-const SignupForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: black solid 1px;
-  border-radius: 10px;
-  width: 33%;
-  // height: 150px;
-  padding: 3%;
-`
-
-const Inputs = styled.input`
-  width: 75%;
-  height: 50px;
-  margin: 1%;
-`
-
-const Button = styled.button`
-  width: 75%;
-  height 50px;
-  margin: 1%;
-  background: #43B3E0;
-`
 
 
 class Signup extends Component {
@@ -67,7 +45,7 @@ class Signup extends Component {
         return (
             <div className="form-wrapper">
                 <SignupForm onSubmit={this.handleSubmit}>
-                    <h3>Sign Up</h3>
+                    <H1>Sign Up</H1>
                     <Inputs
                         onChange={this.handleChange}
                         value={this.state.username}
