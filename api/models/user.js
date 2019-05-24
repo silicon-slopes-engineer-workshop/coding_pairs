@@ -16,7 +16,11 @@ const userSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    skills: [{
+      type: Mixed,
+      required: true
+    }]
 });
 
 userSchema.pre("save", function (next) {
