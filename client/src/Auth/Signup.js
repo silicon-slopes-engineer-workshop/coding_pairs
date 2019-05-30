@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { withContext } from "../AppContext";
-import styled from "styled-components";
+
 import { Button, SignupForm, Inputs, Select } from "../styles/AuthStyles.js";
 import { H1 } from "../styles/GlobalStyles.js";
 import { skills } from "../constants/skills";
+import DisplaySkills from "./DisplaySkills";
 
 class Signup extends Component {
   constructor() {
@@ -12,14 +13,31 @@ class Signup extends Component {
       username: "",
       password: "",
       errorMessage: "",
-      skill: null
+      rating: 3,
+      skills: []
     };
   }
 
   handleChange = e => {
     const { name, value } = e.target;
+    if (name === "skills") {
+      this.setState({
+        skills: [...this.state.skills, value]
+      });
+    } else {
+      this.setState({
+        [name]: value
+      });
+    }
+  };
+
+  removeSkill = (e, item) => {
+    e.preventDefault();
+    const updatedList = this.state.skills.filter(skill => {
+      return skill != item;
+    });
     this.setState({
-      [name]: value
+      skills: updatedList
     });
   };
 
@@ -46,20 +64,22 @@ class Signup extends Component {
       <div className="form-wrapper">
         <SignupForm onSubmit={this.handleSubmit}>
           <H1>Sign Up</H1>
-          <Select
-            type="select"
-            name="skill"
-            header="Skills"
-            onChange={this.handleChange}
-          >
-            <option>Choose a skill</option>
+          <p>Use the drop down to select as many skills as desired.</p>
+          <Select type="select" name="skills" onChange={this.handleChange}>
+            <option>Choose your skills</option>
             {skills.map((item, index) => (
               <option key={index} value={index}>
                 {item}
               </option>
             ))}
           </Select>
-          {this.state.skill ? skills[this.state.skill] : null}
+          {this.state.skills.length > 0 ? (
+            <DisplaySkills
+              skills={this.state.skills}
+              skillsList={skills}
+              removeSkill={this.removeSkill}
+            />
+          ) : null}
           <Inputs
             onChange={this.handleChange}
             value={this.state.username}
