@@ -5,7 +5,7 @@ class AddTodoForm extends Component {
         super();
         this.state = {
             title: "",
-            options: []
+            selectValue: ""
         }
     }
 
@@ -15,6 +15,12 @@ class AddTodoForm extends Component {
         this.setState({
             [name]: value
         })
+    }
+
+    optionChangeHandler = (e) => {
+      console.log("opt change handler", e)
+
+
     }
 
     clearInputs = () => {
@@ -35,7 +41,7 @@ class AddTodoForm extends Component {
     render() {
         return (
             <div>
-           <select >
+           <select value={this.state.selectValue} onChange={this.optionChangeHandler}>
              <option value="null">Pick a Task</option>
              <option value="OpenSource">Open Source</option>
              <option value="ReadCode">Read Code</option>
