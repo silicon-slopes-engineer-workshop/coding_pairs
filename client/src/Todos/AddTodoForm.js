@@ -4,7 +4,8 @@ class AddTodoForm extends Component {
     constructor() {
         super();
         this.state = {
-            title: ""
+            title: "",
+            options: []
         }
     }
 
@@ -34,6 +35,13 @@ class AddTodoForm extends Component {
     render() {
         return (
             <div>
+           <select >
+             <option value="null">Pick a Task</option>
+             <option value="OpenSource">Open Source</option>
+             <option value="ReadCode">Read Code</option>
+             <option value="learnNewLanguage">Learn a new language</option>
+             <option value="qa">QA</option>
+           </select>
                 <form onSubmit={this.handleSubmit}>
                     <h4>Add New Todo</h4>
 
