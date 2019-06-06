@@ -7,17 +7,18 @@ const bodyParser = require("body-parser");
 const expressJwt = require("express-jwt");
 const PORT = process.env.PORT || 5000;
 
+
+const CONNECTION_STRING = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0-05l6i.mongodb.net/test?retryWrites=true&w=majority`;
+
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use("/api", expressJwt({ secret: process.env.SECRET }));
 
 //connect to db
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb://localhost:27017/todo-auth-example",
-    { useNewUrlParser: true },
-    (err) => {
-        if (err) throw err;
-        console.log("Connected to the database");
+mongoose.connect(CONNECTION_STRING, { useNewUrlParser: true }, (err) => {
+  if (err) throw err;
+  console.log("Connected to the database");
     }
 );
 
