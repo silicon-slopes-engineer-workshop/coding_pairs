@@ -18,8 +18,9 @@ class AddTodoForm extends Component {
     }
 
     optionChangeHandler = (e) => {
-      console.log("opt change handler", e)
-
+      const {value } = e.target
+      this.setState({selectValue: value})
+      console.log("state value", this.state.selectValue)
 
     }
 
@@ -41,16 +42,21 @@ class AddTodoForm extends Component {
     render() {
         return (
             <div>
-           <select value={this.state.selectValue} onChange={this.optionChangeHandler}>
-             <option value="null">Pick a Task</option>
-             <option value="OpenSource">Open Source</option>
-             <option value="ReadCode">Read Code</option>
-             <option value="learnNewLanguage">Learn a new language</option>
-             <option value="qa">QA</option>
-           </select>
+           <form>
+             <select value={this.state.selectValue} onChange={this.optionChangeHandler}>
+               <option value="null">Pick a Task</option>
+               <option value="OpenSource">Open Source</option>
+               <option value="ReadCode">Read Code</option>
+               <option value="learnNewLanguage">Learn a new language</option>
+               <option value="qa">QA</option>
+             </select>
+             <input type="submit" value="submit"/>
+           </form>
+             <div>
+              {/*loop through the options array */}
+             </div>
                 <form onSubmit={this.handleSubmit}>
                     <h4>Add New Todo</h4>
-
                     <input
                         name="title"
                         value={this.state.title}
