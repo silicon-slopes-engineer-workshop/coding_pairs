@@ -1,15 +1,38 @@
 import React, { Component } from 'react';
-const options = ["QA", "Open Source", "Read Code"]
+import CheckBoxes from './CheckBoxes'
+const items = ["QA", "Open Source", "Read Code"]
 
 class AddTodoForm extends Component {
     constructor() {
         super();
         this.state = {
             title: "",
-            checkboxes: options.reduce((options, option) => ({...options, [option]: false}))
+            checkboxes: items.reduce(
+                (options, option) => ({
+                  ...options,
+                  [option]: false
+
+                }),
+                {}
+                )
 
         }
     }
+
+    handleCheckBoxChange = (e) => {
+      console.log(e.target.value)
+    }
+
+    createCheckBox = option =>{
+      <CheckBoxes
+        label={option}
+        isSelected={this.state.checkboxes[option]}
+        onCheckboxChange={this.handleCheckBoxChange}
+        key={option}
+       />
+    }
+
+    createCheckBoxes = () => items.map(this.createCheckBox)
 
     handleChange = (e) => {
         e.persist();
@@ -44,13 +67,7 @@ class AddTodoForm extends Component {
     render() {
         return (
             <div>
-           <form>
-             <label for="open source">Open Source</label>
-             <input type="checkbox" name="open source" onChange={this.optionChangeHandler}/>
-             <label for="QA">QA</label>
-             <input type="checkbox" name="open source" onChange={this.optionChangeHandler}/>
-             <input type="submit" value="Submit" />
-           </form>
+            {items.map(this.createCheckBoxes)}
              <div>
               {/*loop through the options array */}
              </div>
