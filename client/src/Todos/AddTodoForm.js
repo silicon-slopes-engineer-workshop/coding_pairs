@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+const options = ["QA", "Open Source", "Read Code"]
 
 class AddTodoForm extends Component {
     constructor() {
         super();
         this.state = {
             title: "",
-            selectValue: ""
+            checkboxes: options.reduce((options, option) => ({...options, [option]: false}))
+
         }
     }
 
@@ -20,7 +22,7 @@ class AddTodoForm extends Component {
     optionChangeHandler = (e) => {
       const {value } = e.target
       this.setState({selectValue: value})
-      console.log("state value", this.state.selectValue)
+      // console.log("state aalue", this.state.selectValue)
 
     }
 
@@ -43,14 +45,11 @@ class AddTodoForm extends Component {
         return (
             <div>
            <form>
-             <select value={this.state.selectValue} onChange={this.optionChangeHandler}>
-               <option value="null">Pick a Task</option>
-               <option value="OpenSource">Open Source</option>
-               <option value="ReadCode">Read Code</option>
-               <option value="learnNewLanguage">Learn a new language</option>
-               <option value="qa">QA</option>
-             </select>
-             <input type="submit" value="submit"/>
+             <label for="open source">Open Source</label>
+             <input type="checkbox" name="open source" onChange={this.optionChangeHandler}/>
+             <label for="QA">QA</label>
+             <input type="checkbox" name="open source" onChange={this.optionChangeHandler}/>
+             <input type="submit" value="Submit" />
            </form>
              <div>
               {/*loop through the options array */}
