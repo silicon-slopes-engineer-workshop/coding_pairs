@@ -6,7 +6,7 @@ import Signup from "./Auth/Signup";
 import Login from "./Auth/Login";
 import ProtectedRoute from "./Auth/ProtectedRoute";
 
-import TodoList from "./Todos/TodoList";
+import Participant from "./Participant/Participant"
 
 function App() {
     return (
@@ -15,7 +15,7 @@ function App() {
             <Switch>
                 <Route path="/signup" component={Signup}/>
                 <Route path="/login" component={Login}/>
-                <ProtectedRoute path="/todos" component={TodoList}/>
+                <ProtectedRoute path="/todos" component={Participant}/>
                 <Route exact path="/" render={() => <Redirect to="/todos"/>}/>
             </Switch>
         </div>

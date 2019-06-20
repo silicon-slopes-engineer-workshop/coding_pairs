@@ -32,20 +32,13 @@ class Signup extends Component {
   };
 
   removeSkill = (e, item) => {
-    const { name, value } = e.target;
     e.preventDefault();
     const updatedList = this.state.skills.filter(skill => {
         return skill !== item;
     })
-      if (name === "skills") {
         this.setState({
-          skills: [...this.state.skills, value]
-        });
-      } else {
-        this.setState({
-          [name]: value
-        });
-      }
+          skills: updatedList
+        })
     }
   
 

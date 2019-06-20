@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Ul } from "../styles/GlobalStyles";
 import { withContext } from "../AppContext";
+import TasksForm from './TasksForm'
 
-function TodoList(props) {
+function Participant(props) {
   console.log(props);
   const [skills, setSkills] = useState([]);
 
@@ -26,8 +27,9 @@ function TodoList(props) {
       ) : (
         <p>Loading skills</p>
       )}
+      <TasksForm />
     </main>
   );
 }
 
-export default withContext(TodoList);
+export default withContext(Participant);
