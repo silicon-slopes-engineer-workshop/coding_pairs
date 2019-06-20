@@ -35,11 +35,17 @@ class Signup extends Component {
     e.preventDefault();
     const updatedList = this.state.skills.filter(skill => {
       return skill !== item;
-    });
-    this.setState({
-      skills: updatedList
-    });
+    if (name === "skills") {
+      this.setState({
+        skills: [...this.state.skills, value]
+      });
+    } else {
+      this.setState({
+        [name]: value
+      });
+    }
   };
+
 
   clearInputs = () => {
     this.setState({
@@ -69,6 +75,7 @@ class Signup extends Component {
             <option>Choose your skills</option>
             {skills.map((item, index) => (
               <option key={index} value={item}>
+
                 {item}
               </option>
             ))}
@@ -78,6 +85,7 @@ class Signup extends Component {
               skills={this.state.skills}
               removeSkill={this.removeSkill}
               handleChange={this.handleChange}
+              skillsList={skills}
             />
           ) : null}
           <Inputs

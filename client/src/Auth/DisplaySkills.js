@@ -1,7 +1,8 @@
 import React from "react";
 import { Ul } from "../styles/GlobalStyles";
 
-export default ({ skills, handleChange, removeSkill, rating }) => {
+
+export default ({ skills, skillsList, removeSkill }) => {
   return (
     <div>
       <Ul>
