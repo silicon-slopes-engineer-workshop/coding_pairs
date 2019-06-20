@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-
+import styled from "styled-components";
 
 // Signup Page styles
 
@@ -9,7 +7,14 @@ export const Inputs = styled.input`
   margin: 1%;
   height: 35px;
   font-size: 1.3em;
-`
+`;
+
+export const Select = styled.select`
+  width: 20%;
+  margin: 1%;
+  height: 35px;
+  font-size: 1.3em;
+`;
 
 export const Button = styled.button`
   width: 20%;
@@ -23,9 +28,7 @@ export const Button = styled.button`
     background: #fea680;
   }
   // write styles in here just like a CSS file
-
-`
-
+`;
 
 export const SignupForm = styled.form`
   display: flex;
@@ -34,9 +37,6 @@ export const SignupForm = styled.form`
   flex-direction: column;
   border: black solid 1px;
   margin: 20px 3%;
-`
+`;
 
 // Login page styles
-
-
-
