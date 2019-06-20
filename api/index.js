@@ -26,6 +26,7 @@ mongoose.connect(
 
 app.use("/auth", require("./routes/auth"));
 app.use("/api/todo", require("./routes/todo"));
+app.use("/api/admin", require("./routes/admin"));
 
 app.use((err, req, res, next) => {
   console.error(err);

@@ -8,7 +8,7 @@ function Admin(props) {
   const [usernames, setUsernames] = useState([]);
 
   useEffect(() => {
-    setUsernames(mockUsers);
+    setUsernames(props.users);
   });
 
   

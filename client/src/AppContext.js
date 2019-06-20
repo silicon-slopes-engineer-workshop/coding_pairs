@@ -22,7 +22,7 @@ export class AppContextProvider extends Component {
     }
 
     componentDidMount() {
-        this.getTodos();
+        this.getParticipants();
     }
 
     getTodos = () => {
@@ -36,20 +36,21 @@ export class AppContextProvider extends Component {
     getParticipants = () => {
         return todoAxios.get("/api/admin/participants")
             .then(response => {
+                console.log(response)
                 this.setState({ users: response.data });
                 return response;
             })
     }
 
-    addTodo = (newTodo) => {
-        return todoAxios.post("/api/todo/", newTodo)
-            .then(response => {
-                this.setState(prevState => {
-                    return { todos: [...prevState.todos, response.data] }
-                });
-                return response;
-            })
-    }
+    // addTodo = (newTodo) => {
+    //     return todoAxios.post("/api/todo/", newTodo)
+    //         .then(response => {
+    //             this.setState(prevState => {
+    //                 return { todos: [...prevState.todos, response.data] }
+    //             });
+    //             return response;
+    //         })
+    // }
 
    makePairs = (newParticipants) => {
         return todoAxios.post("/api/admin/pairs", newParticipants)
