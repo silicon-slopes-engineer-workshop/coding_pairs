@@ -14,14 +14,15 @@ export class AppContextProvider extends Component {
     constructor() {
         super()
         this.state = {
-            todos: [],
+            users: [],
+            pairs: [],
             user: JSON.parse(localStorage.getItem("user")) || {},
             token: localStorage.getItem("token") || ""
         }
     }
 
     componentDidMount() {
-        this.getTodos();
+        this.getParticipants();
     }
 
     getTodos = () => {
@@ -32,11 +33,30 @@ export class AppContextProvider extends Component {
             })
     }
 
-    addTodo = (newTodo) => {
-        return todoAxios.post("/api/todo/", newTodo)
+    getParticipants = () => {
+        return todoAxios.get("/api/admin/participants")
+            .then(response => {
+                console.log(response)
+                this.setState({ users: response.data });
+                return response;
+            })
+    }
+
+    // addTodo = (newTodo) => {
+    //     return todoAxios.post("/api/todo/", newTodo)
+    //         .then(response => {
+    //             this.setState(prevState => {
+    //                 return { todos: [...prevState.todos, response.data] }
+    //             });
+    //             return response;
+    //         })
+    // }
+
+   makePairs = (newParticipants) => {
+        return todoAxios.post("/api/admin/pairs", newParticipants)
             .then(response => {
                 this.setState(prevState => {
-                    return { todos: [...prevState.todos, response.data] }
+                    return { pairs: [...prevState.pairs, response.data] }
                 });
                 return response;
             })
