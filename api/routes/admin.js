@@ -2,7 +2,7 @@ const express = require("express");
 const adminRouter = express.Router();
 // const Participant = require("../models/participant");
 // const User = require("../models/user");
-
+// const Pair = require("../models/pair");
 // 2. algorithm to match - tasks 
 
 adminRouter.get("/participants", (req, res, next) => {
@@ -27,16 +27,16 @@ adminRouter.get("/participants", (req, res, next) => {
     }]);
   });
   
-//   adminRouter.post("/", (req, res, next) => {
-//     const todo = new Todo(req.body);
-//     todo.user = req.user._id;
-//     todo.save(function(err, newTodo) {
-//       if (err) {
-//         res.status(500);
-//         return next(err);
-//       }
-//       return res.status(201).send(newTodo);
-//     });
-//   });
+  adminRouter.post("/pairs", (req, res, next) => {
+    const todo = new Pair(req.body);
+    todo.user = req.user._id;
+    todo.save(function(err, newTodo) {
+      if (err) {
+        res.status(500);
+        return next(err);
+      }
+      return res.status(201).send(newTodo);
+    });
+  });
 
 module.exports = adminRouter;
