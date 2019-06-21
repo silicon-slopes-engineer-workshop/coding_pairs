@@ -1,15 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { Ul } from "../styles/GlobalStyles";
 import { withContext } from "../AppContext";
-import TasksForm from './TasksForm'
+import TasksForm from "./TasksForm";
 
 function Participant(props) {
-  console.log(props);
   const [skills, setSkills] = useState([]);
+  const [preferences, setPreferences] = useState([]);
 
   useEffect(() => {
+    console.log(
+      `tasks coming into Participant are ${props.tasks} and preferences are ${
+        props.user.preferences
+      }`
+    );
     setSkills(props.user.skills);
-  });
+    if (props.user.preferences.length < 1) {
+      const id = props.user.preferences[props.user.preferences.length - 1];
+
+      props.getPreferences(id).then(response => {
+        setPreferences(response.data);
+      });
+    } else {
+      props
+        .getPreferences(
+          props.user.preferences[props.user.preferences.length - 1]
+        )
+        .then(response => {
+          setPreferences(response.data);
+        });
+    }
+  }, [props.user]);
 
   let userSkills = [];
 
@@ -27,7 +47,14 @@ function Participant(props) {
       ) : (
         <p>Loading skills</p>
       )}
-      <TasksForm />
+
+      {preferences.date &&
+      new Date(preferences.date).toDateString() ===
+        new Date().toDateString() ? (
+        <div> You're ready to go!</div>
+      ) : (
+        <TasksForm />
+      )}
     </main>
   );
 }
