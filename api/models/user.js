@@ -20,6 +20,12 @@ const userSchema = new Schema({
   skills: {
     type: Array,
     required: true
+  },
+  preferences: {
+    type: [Schema.Types.ObjectId]
+  },
+  events: {
+    type: [Schema.Types.ObjectId]
   }
 });
 

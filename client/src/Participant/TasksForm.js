@@ -1,76 +1,118 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import FlipCard from "./FlipCard/FlipCard";
+import { withContext } from "../AppContext";
 
 class TasksForm extends Component {
-    constructor() {
-        super();
-        this.state = {
-            title: "",
-            // tasks: ['Solve Issues', 'Read Code', 'Learn Language / Framework', 'Open Source', 'Build Small App', 'Testing', 'Write Tutorial', 'Coding Challenge'],
-            tasks: [    {title: 'Solve Issues', isSelected: false },
-                        {title: 'Read Code', isSelected: false}
-            ],
-            selectedItems: []
-        }
-    }
+  constructor() {
+    super();
+    this.state = {
+      tasks: [],
+      preferences: []
+    };
+  }
 
-    handleChange = (e) => {
-        e.persist();
-        const { name, value } = e.target;
-        this.setState({
-            [name]: value
-        })
-    }
+  componentDidMount() {
+    console.log(
+      `tasks coming into TasksForm are ${
+        this.props.tasks
+      } and the user's past preferences are ${
+        this.props.user.preferences
+      } but the currently selected tasks are ${this.state.preferences}`
+    );
+    const tasks = this.props.getTasks();
+    tasks.then(result => {
+      const data = result.data.map(item => {
+        item.isSelected = false;
+        return item;
+      });
+      this.setState({
+        tasks: data
+      });
+    });
+  }
 
-    clearInputs = () => {
-        this.setState({
-            title: ""
-        })
-    }
+  mappedCards = () => {
+    const { tasks } = this.state;
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.addTodo(this.state)
-            .then(response => {
-                this.clearInputs()
-            })
-            .catch(err => console.error(err.response.data.message))
-    }
-
-    toggleClick = (e) => {
-        const newArray = this.state.tasks.map(item => {
-            return item.title === e.target.title ? {title: item.title, isSelected: true} : item
-        })
-        this.setState({tasks: newArray})
-    }
-
-    render() {
-        let mappedCards = this.state.tasks.map((task, index) => {
-            return (
-                <div key={index} title={task.title} id={index} selected={task.isSelected} style={{border: '1px solid black', height: '20vh', width: '20vw', margin: '10px', display: 'inline-block', backgroundColor: this.selected ? 'green' : 'red'  }} onClick={(e) => this.toggleClick(e)} >
-                    <h5>{task.title}</h5>
-                    <p>description here</p>
-                    <p>image here</p>
-                </div>
-            )
-        })
+    if (tasks.length > 0) {
+      return tasks.map((task, index) => {
         return (
-            <div>
-                {mappedCards}
-                {/* <form onSubmit={this.handleSubmit}>
-                    <h4>Add New Todo</h4>
-
-                    <input
-                        name="title"
-                        value={this.state.title}
-                        onChange={this.handleChange}
-                        type="text"
-                        placeholder="Title"/>
-
-                    <button>+</button>
-                </form> */}
-            </div>
-        )
+          <FlipCard
+            task={task}
+            key={index}
+            id={index}
+            handleSelect={this.toggleClick}
+            count={this.state.preferences.length}
+          />
+        );
+      });
+    } else {
+      return <h3>Loading...</h3>;
     }
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const preferencesIds = this.state.preferences.map(item => item._id);
+    const preferencesObject = {
+      date: Date.now(),
+      preferences: preferencesIds
+    };
+    this.props.submitPreferences(preferencesObject).then(response => {
+      console.log(response.data);
+      // get user and add response id to user preferences array...
+      // then call submitParticipant with user's username
+
+      const usersPreferences = {
+        preferences: this.props.user.preferences
+          ? [...this.props.user.preferences, response.data._id]
+          : [response.data._id]
+      };
+      this.props
+        .updateUser(this.props.user._id, usersPreferences)
+        .then(response => {
+          console.log(response.data);
+        });
+    });
+  };
+
+  toggleClick = e => {
+    const newArray = this.state.tasks.map(item => {
+      return item.title === e.target.title
+        ? { ...item, isSelected: !item.isSelected }
+        : item;
+    });
+    const preferences = newArray.filter(item => {
+      return item.isSelected;
+    });
+    console.log(`the currently selected preferences are `, preferences);
+    this.setState({ tasks: newArray, preferences });
+  };
+
+  render() {
+    return (
+      <div style={{ maxWidth: "80vw", margin: "0 auto" }}>
+        {this.state.preferences.length > 3 ? (
+          <div style={{ margin: "50px auto" }}>
+            <button
+              onClick={this.handleSubmit}
+              style={{
+                height: "50px",
+                width: "100%",
+                background: "blue",
+                borderRadius: "5px",
+                fontSize: "1.5rem"
+              }}
+            >
+              Submit
+            </button>
+          </div>
+        ) : null}
+        {this.mappedCards()}
+      </div>
+    );
+  }
 }
 
-export default TasksForm;
+export default withContext(TasksForm);

@@ -25,11 +25,13 @@ mongoose.connect(
 );
 
 app.use("/auth", require("./routes/auth"));
-app.use("/api/todo", require("./routes/todo"));
+app.use("/api/task", require("./routes/task"));
 app.use("/api/admin", require("./routes/admin"));
+app.use("/api/user", require("./routes/user"));
+app.use("/api/preferences", require("./routes/preferences"));
 
 app.use((err, req, res, next) => {
-  console.error(err);
+  console.error(JSON.stringify(err));
   if (err.name === "UnauthorizedError") {
     res.status(err.status);
   }
