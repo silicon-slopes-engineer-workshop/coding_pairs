@@ -4,6 +4,10 @@
   "description": "pair coding matcher for silicon-slopes-engineer-workshop meet up",
   "main": "index.js",
   "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node index.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd .. && cd client && npm run start",
     "test": "nodemon --exec 'mocha --recursive -R min'"
   },
   "keywords": [],

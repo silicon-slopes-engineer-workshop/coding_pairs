@@ -1,16 +1,16 @@
 const express = require("express");
 const todoRouter = express.Router();
-const Todo = require("../models/todo");
+const Task = require("../models/task");
 const User = require("../models/user");
 
 todoRouter.get("/", (req, res, next) => {
-  console.log(`Hit the base route for User...`);
-  User.find((err, user) => {
+  console.log(`Hit the base route for Task...`);
+  Task.find((err, tasks) => {
     if (err) {
       res.status(500);
       return next(err);
     }
-    return res.send(user);
+    return res.send(tasks);
   });
 });
 
