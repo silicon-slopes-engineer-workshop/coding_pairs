@@ -16,7 +16,7 @@ app.use(cors());
 //connect to db
 mongoose.set("useCreateIndex", true);
 mongoose.connect(
-  "mongodb://localhost:27017/todo-auth-example",
+  "mongodb://localhost:27017/codewithme",
   { useNewUrlParser: true },
   err => {
     if (err) throw err;
