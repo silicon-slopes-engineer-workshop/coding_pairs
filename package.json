@@ -3,20 +3,33 @@
   "version": "1.0.0",
   "description": "pair coding matcher for silicon-slopes-engineer-workshop meet up",
   "main": "index.js",
+  "engines": {
+    "node": "8.9.x"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node index.js",
+    "seed": "cd api && cd seeds && node taskSeeds.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd .. && cd client && npm run start",
-    "test": "nodemon --exec 'mocha --recursive -R min'"
+    "test": "nodemon --exec 'mocha --recursive -R min'",
+    "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
+  "author": "silicon-slopes-engineer-workshop",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silicon-slopes-engineer-workshop/coding_pairs.git"
+  },
   "dependencies": {
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
+    "cluster": "^0.7.7",
     "concurrently": "^4.1.1",
     "cors": "^2.8.5",
     "dotenv": "^6.0.0",
@@ -30,5 +43,15 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [
+    "pair",
+    "node",
+    "heroku",
+    "create-react-app",
+    "react",
+    "mern",
+    "mongodb"
+  ]
 }
