@@ -1,39 +1,23 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import FlipCard from "./FlipCard/FlipCard";
 import { withContext } from "../AppContext";
 
-class TasksForm extends Component {
-  constructor() {
-    super();
-    this.state = {
-      tasks: [],
-      preferences: []
-    };
-  }
+function TasksForm(props) {
+  const [tasks, setTasks] = useState([]);
+  const [preferences, setPreferences] = useState([]);
 
-  componentDidMount() {
-    console.log(
-      `tasks coming into TasksForm are ${
-        this.props.tasks
-      } and the user's past preferences are ${
-        this.props.user.preferences
-      } but the currently selected tasks are ${this.state.preferences}`
-    );
-    const tasks = this.props.getTasks();
+  useEffect(() => {
+    const tasks = props.getTasks();
     tasks.then(result => {
       const data = result.data.map(item => {
         item.isSelected = false;
         return item;
       });
-      this.setState({
-        tasks: data
-      });
+      setTasks(data);
     });
-  }
+  }, []);
 
-  mappedCards = () => {
-    const { tasks } = this.state;
-
+  const mappedCards = () => {
     if (tasks.length > 0) {
       return tasks.map((task, index) => {
         return (
@@ -41,8 +25,8 @@ class TasksForm extends Component {
             task={task}
             key={index}
             id={index}
-            handleSelect={this.toggleClick}
-            count={this.state.preferences.length}
+            handleSelect={toggleClick}
+            count={preferences.length}
           />
         );
       });
@@ -51,34 +35,32 @@ class TasksForm extends Component {
     }
   };
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    const preferencesIds = this.state.preferences.map(item => item._id);
+    const preferencesIds = preferences.map(item => item._id);
     const preferencesObject = {
       date: Date.now(),
       preferences: preferencesIds
     };
-    this.props.submitPreferences(preferencesObject).then(response => {
+    props.submitPreferences(preferencesObject).then(response => {
       console.log(response.data);
       // get user and add response id to user preferences array...
       // then call submitParticipant with user's username
 
       const usersPreferences = {
-        preferences: this.props.user.preferences
-          ? [...this.props.user.preferences, response.data._id]
+        preferences: props.user.preferences
+          ? [...props.user.preferences, response.data._id]
           : [response.data._id]
       };
-      this.props
-        .updateUser(this.props.user._id, usersPreferences)
-        .then(response => {
-          console.log(response.data);
-        });
+      props.updateUser(props.user._id, usersPreferences).then(response => {
+        console.log(response.data);
+      });
     });
   };
 
-  toggleClick = e => {
-    const newArray = this.state.tasks.map(item => {
+  const toggleClick = e => {
+    const newArray = tasks.map(item => {
       return item.title === e.target.title
         ? { ...item, isSelected: !item.isSelected }
         : item;
@@ -87,32 +69,31 @@ class TasksForm extends Component {
       return item.isSelected;
     });
     console.log(`the currently selected preferences are `, preferences);
-    this.setState({ tasks: newArray, preferences });
+    setTasks(newArray);
+    setPreferences(preferences);
   };
 
-  render() {
-    return (
-      <div style={{ maxWidth: "80vw", margin: "0 auto" }}>
-        {this.state.preferences.length > 3 ? (
-          <div style={{ margin: "50px auto" }}>
-            <button
-              onClick={this.handleSubmit}
-              style={{
-                height: "50px",
-                width: "100%",
-                background: "blue",
-                borderRadius: "5px",
-                fontSize: "1.5rem"
-              }}
-            >
-              Submit
-            </button>
-          </div>
-        ) : null}
-        {this.mappedCards()}
-      </div>
-    );
-  }
+  return (
+    <div style={{ maxWidth: "80vw", margin: "0 auto" }}>
+      {preferences.length > 3 ? (
+        <div style={{ margin: "50px auto" }}>
+          <button
+            onClick={handleSubmit}
+            style={{
+              height: "50px",
+              width: "100%",
+              background: "blue",
+              borderRadius: "5px",
+              fontSize: "1.5rem"
+            }}
+          >
+            Submit
+          </button>
+        </div>
+      ) : null}
+      {mappedCards()}
+    </div>
+  );
 }
 
 export default withContext(TasksForm);

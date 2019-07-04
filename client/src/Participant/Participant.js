@@ -13,6 +13,7 @@ function Participant(props) {
         props.user.preferences
       }`
     );
+    console.log(props);
     setSkills(props.user.skills);
     if (props.user.preferences.length < 1) {
       const id = props.user.preferences[props.user.preferences.length - 1];
