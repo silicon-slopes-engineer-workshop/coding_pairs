@@ -4,7 +4,7 @@
   "description": "pair coding matcher for silicon-slopes-engineer-workshop meet up",
   "main": "index.js",
   "engines": {
-    "node": "8.9.x"
+    "node": "8.12.0"
   },
   "scripts": {
     "start": "cd api && node index.js",
