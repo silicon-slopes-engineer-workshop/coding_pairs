@@ -6,14 +6,18 @@
   "engines": {
     "node": "10.3.0"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "scripts": {
     "start": "cd api && node index.js",
     "start:prod": "node index.js",
-    "seed": "cd api && cd seeds && node taskSeeds.js",
+    "seed": "cd .. && cd api && cd seeds && node taskSeeds.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd .. && cd client && npm run start",
     "test": "nodemon --exec 'mocha --recursive -R min'",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build && npm run seed"
   },
   "author": "silicon-slopes-engineer-workshop",
   "license": "MIT",
