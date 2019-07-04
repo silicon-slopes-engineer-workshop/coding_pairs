@@ -106,6 +106,10 @@ CODEWITHME is an MIT-licensed open source project. It's an independent project w
 `git checkout -b deploy-framework-1`;
 ```
 
+## Heroku
+
+heroku logs --tail --app codewithme-app
+
 ## CSS Colors
 
 These are colors for the overall app.
