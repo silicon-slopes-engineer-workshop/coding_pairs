@@ -17,7 +17,7 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd .. && cd client && npm run start",
     "test": "nodemon --exec 'mocha --recursive -R min'",
-    "heroku-postbuild": "npm run seed && cd client && npm install && npm run build && npm install --only=dev --no-shrinkwrap"
+    "heroku-postbuild": "cd client && npm install && npm run build && npm install --only=dev --no-shrinkwrap"
   },
   "author": "silicon-slopes-engineer-workshop",
   "license": "MIT",
