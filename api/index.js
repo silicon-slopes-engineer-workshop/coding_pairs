@@ -11,8 +11,11 @@ const path = require('path');
 
   const app = express();
   // Priority serve any static files.
-  app.use(express.static(path.resolve(__dirname, '../client/build')));
-  
+ 
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+
+
   app.use(morgan("dev"));
   app.use(bodyParser.json());
   app.use("/api", expressJwt({ secret: process.env.SECRET }));
@@ -48,7 +51,9 @@ const path = require('path');
     return res.send({ message: err.message });
   });
 
-
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
   app.listen(PORT, function () {
     console.error(`Node listening on port ${PORT}`);
