@@ -15,10 +15,6 @@
     "test": "nodemon --exec 'mocha --recursive -R min'",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "client/node_modules"
-  ],
   "author": "silicon-slopes-engineer-workshop",
   "license": "MIT",
   "repository": {
