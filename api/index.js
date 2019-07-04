@@ -24,12 +24,14 @@ if (cluster.isMaster) {
 
 } else {
   const app = express();
+  // Priority serve any static files.
+  app.use(express.static(path.resolve(__dirname, '../client/build')));
+  
   app.use(morgan("dev"));
   app.use(bodyParser.json());
   app.use("/api", expressJwt({ secret: process.env.SECRET }));
   app.use(cors());
-  // Priority serve any static files.
-  app.use(express.static(path.resolve(__dirname, '../client/build')));
+  
   //connect to db
   const connectDb = process.env.MONGODB_URI || "mongodb://localhost:27017/codewithme"
   mongoose.set("useCreateIndex", true);
