@@ -7,13 +7,13 @@
     "node": "8.9.x"
   },
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "node index.js",
     "start:prod": "node index.js",
     "seed": "cd api && cd seeds && node taskSeeds.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd .. && cd client && npm run start",
     "test": "nodemon --exec 'mocha --recursive -R min'",
-    "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "cacheDirectories": [
     "node_modules",
