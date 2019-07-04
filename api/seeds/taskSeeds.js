@@ -5,7 +5,8 @@ const taskData = require("./taskData");
 const MONGODB_URI =
   process.env.MONGODB_URI || "mongodb://localhost:27017/codewithme";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI,
+  { useNewUrlParser: true });
 db.on("error", console.error.bind(console, "connection error"));
 db.once("open", () => {
   console.log(`Connected successfully to mongo db at ${MONGODB_URI}`);
