@@ -7,7 +7,7 @@
     "node": "8.9.x"
   },
   "scripts": {
-    "start": "node /api/index.js",
+    "start": "cd api && node index.js",
     "start:prod": "node index.js",
     "seed": "cd api && cd seeds && node taskSeeds.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
