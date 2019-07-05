@@ -34,14 +34,12 @@ class Signup extends Component {
   removeSkill = (e, item) => {
     e.preventDefault();
     const updatedList = this.state.skills.filter(skill => {
-        return skill !== item;
-    })
-        this.setState({
-          skills: updatedList
-        })
-    }
-  
-
+      return skill !== item;
+    });
+    this.setState({
+      skills: updatedList
+    });
+  };
 
   clearInputs = () => {
     this.setState({
@@ -55,7 +53,7 @@ class Signup extends Component {
     e.preventDefault();
     this.props
       .signup(this.state)
-      .then(() => this.props.history.push("/todos"))
+      .then(() => this.props.history.push("/participant"))
       .catch(err => {
         this.setState({ errorMessage: err.response.data.message });
       });
@@ -71,7 +69,6 @@ class Signup extends Component {
             <option>Choose your skills</option>
             {skills.map((item, index) => (
               <option key={index} value={item}>
-
                 {item}
               </option>
             ))}

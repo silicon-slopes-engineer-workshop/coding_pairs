@@ -29,7 +29,7 @@ todoRouter.post("/", (req, res, next) => {
 todoRouter.get("/:todoId", (req, res, next) => {
   const user = req.params.todoId;
   console.log(user);
-  User.findOne({ _id: user }, (err, todo) => {
+  Task.findById(user, (err, todo) => {
     if (err) {
       res.status(500);
       return next(err);

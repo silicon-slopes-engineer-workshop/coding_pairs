@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Ul } from "../styles/GlobalStyles";
 import { withContext } from "../AppContext";
 import TasksForm from "./TasksForm";
+import Waiting from "./Waiting";
 
 function Participant(props) {
   const [skills, setSkills] = useState([]);
@@ -52,7 +53,7 @@ function Participant(props) {
       {preferences.date &&
       new Date(preferences.date).toDateString() ===
         new Date().toDateString() ? (
-        <div> You're ready to go!</div>
+        <Waiting />
       ) : (
         <TasksForm />
       )}

@@ -16,6 +16,7 @@ export class AppContextProvider extends Component {
     this.state = {
       tasks: [],
       pairs: [],
+      userTasks: [],
       user: JSON.parse(localStorage.getItem("user")) || {},
       token: localStorage.getItem("token") || ""
     };
@@ -23,12 +24,20 @@ export class AppContextProvider extends Component {
 
   componentDidMount() {
     this.getParticipants();
+    this.getUsers();
   }
 
   getTasks = () => {
     return todoAxios.get("/api/task").then(response => {
       this.setState({ tasks: response.data });
       return response;
+    });
+  };
+
+  getTask = id => {
+    return todoAxios.get(`/api/task/${id}`).then(response => {
+      this.setState({ userTasks: [...this.state.userTasks, response.data] });
+      return response.data;
     });
   };
 
@@ -44,8 +53,16 @@ export class AppContextProvider extends Component {
   getParticipants = () => {
     return todoAxios.get("/api/admin/participants").then(response => {
       console.log(response);
-      this.setState({ users: response.data });
+      this.setState({ participants: response.data });
       return response;
+    });
+  };
+
+  getUsers = () => {
+    return todoAxios.get("/api/user").then(response => {
+      console.log(`the users from getUsers`, response);
+      this.setState({ users: response.data });
+      return response.data;
     });
   };
 
@@ -118,6 +135,8 @@ export class AppContextProvider extends Component {
       <AppContext.Provider
         value={{
           getTasks: this.getTasks,
+          getTask: this.getTask,
+          getUsers: this.getUsers,
           submitPreferences: this.submitPreferences,
           getPreferences: this.getPreferences,
           updateUser: this.updateUser,

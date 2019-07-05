@@ -30,7 +30,7 @@ class LoginForm extends Component {
     e.preventDefault();
     this.props
       .login(this.state)
-      .then(() => this.props.history.push("/todos"))
+      .then(() => this.props.history.push("/participant"))
       .catch(err => {
         this.setState({ errorMessage: err.response.data.message });
       });

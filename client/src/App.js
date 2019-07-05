@@ -1,25 +1,25 @@
-import React from 'react';
+import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./Navbar";
 import Signup from "./Auth/Signup";
 import Login from "./Auth/Login";
 import ProtectedRoute from "./Auth/ProtectedRoute";
-import Participant from "./Participant/Participant"
-import Admin from "./Admin/Admin.js"
+import Participant from "./Participant/Participant";
+import Admin from "./Admin/Admin.js";
 
 function App() {
-    return (
-        <div className="app-wrapper">
-            <Navbar/>
-            <Switch>
-                <Route path="/signup" component={Signup}/>
-                <Route path="/login" component={Login}/>
-                <ProtectedRoute path="/todos" component={Participant}/>
-                <ProtectedRoute path="/admin" component={Admin}/>
-                <Route exact path="/" render={() => <Redirect to="/todos"/>}/>
-            </Switch>
-        </div>
-    )
+  return (
+    <div className="app-wrapper">
+      <Navbar />
+      <Switch>
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login} />
+        <ProtectedRoute path="/participant" component={Participant} />
+        <ProtectedRoute path="/admin" component={Admin} />
+        <Route exact path="/" render={() => <Redirect to="/participant" />} />
+      </Switch>
+    </div>
+  );
 }
 
 export default App;

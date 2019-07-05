@@ -3,7 +3,7 @@ const db = mongoose.connection;
 const Task = require("../models/task");
 const taskData = require("./taskData");
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/todo-auth-example";
+  process.env.MONGODB_URI || "mongodb://localhost:27017/codewithme";
 
 mongoose.connect(MONGODB_URI);
 db.on("error", console.error.bind(console, "connection error"));

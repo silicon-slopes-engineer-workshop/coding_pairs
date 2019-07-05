@@ -14,6 +14,17 @@ userRouter.post("/", (req, res, next) => {
   });
 });
 
+userRouter.get("/", (req, res, next) => {
+  User.find({}, (err, results) => {
+    if (err) {
+      res.status(500);
+      return next(err);
+    } else {
+      return res.send(results);
+    }
+  });
+});
+
 userRouter.get("/:userId", (req, res, next) => {
   const user = req.params.userId;
   User.findOne({ _id: user }, (err, result) => {
