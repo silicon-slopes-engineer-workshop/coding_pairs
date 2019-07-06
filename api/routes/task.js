@@ -1,7 +1,6 @@
 const express = require("express");
 const todoRouter = express.Router();
 const Task = require("../models/task");
-const User = require("../models/user");
 
 todoRouter.get("/", (req, res, next) => {
   console.log(`Hit the base route for Task...`);

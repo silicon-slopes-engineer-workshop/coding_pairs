@@ -4,12 +4,15 @@ const TaskPreferences = require("../models/taskPreferences");
 
 preferencesRouter.post("/", (req, res, next) => {
   console.log("Hit the post preferences route...");
+  console.log(`req.body coming from client: `, req.body);
   const preferences = new TaskPreferences(req.body);
+  console.log(`preferences model object is: `, preferences);
   preferences.save((err, result) => {
     if (err) {
       res.status(500);
       return next(err);
     }
+    console.log(`saved taskPreferences item returning from db: `, result);
     return res.status(201).send(result);
   });
 });
